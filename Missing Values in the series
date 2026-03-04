@@ -1,0 +1,29 @@
+// Find the missing number in the series eg:[1,2,3,4,7] -> missing values is 2 (5,6)
+#include<stdio.h>
+
+int missingNumber(int* nums, int numsSize) {
+   int result = 0;
+   int i;
+   for(i=0;i<=numsSize;i++){
+    result += i;
+   }
+
+  for(i=0;i<numsSize;i++){
+     result -= nums[i];
+   }
+   return result;
+}
+
+int main(){
+   int i,n;
+   printf("Enter the size of the array = ");
+   scanf("%d",&n);
+   int arr[n];
+   printf("Enter elements os the array : ");
+   for(i=0;i<n;i++){
+      scanf("%d",&arr[i]);
+   }
+   int res = missingNumber(arr,n);
+   printf("Mising Value is %d",res);
+   return 0;
+}
