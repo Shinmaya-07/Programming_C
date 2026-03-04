@@ -1,0 +1,65 @@
+#include<stdio.h>
+
+#define min_bal 1000
+
+struct account{
+   int acc_no;
+   char name[20];
+   float balance;
+};
+
+void deposit(struct account acc,int amount){
+   acc.balance = acc.balance+amount;
+   printf("Amount deposited Successfully to the Account :%d\n",acc.acc_no);
+   printf("Current Balance : %d\n",acc.balance);
+}
+void withdraw(struct account acc,int amount){
+   if(acc.balance > amount){
+      acc.balance = acc.balance-amount;
+      printf("Amount Withdrawed Successfully from the Account %d",acc.acc_no);
+      printf("Current Balance : %d",acc.balance);
+   }
+   else{
+     printf("Insufficient Balance.(Balance:%d)",acc.balance);
+   }
+}
+void balance(struct account acc){
+   printf("Account Holder : %s",acc.name);
+   printf("Account number : %d",acc.acc_no);
+   printf("Balance : %f",acc.balance);
+}
+
+int main(){
+   struct account acc;
+   int ch,amt;
+   printf("Enter Account No. : ");
+   scanf("%d",&acc.acc_no);
+   printf("Name of the Account Holder : ");
+   scanf("%s",acc.name);
+   printf("Initial Balance : ");
+   scanf("%f",&acc.balance);
+
+   printf("\n1.Deposit\n 2.Withdraw\n 3.Balance\n");
+   printf("Enter your Choice : ");
+   scanf("%d",&ch);
+
+   switch(ch){
+      case 1:
+         printf("Enter amount to Deposit : ");
+         scanf("%d",&amt);
+         deposit(acc,amt);
+         break;
+      case 2:
+         printf("Enter Amount to Withdraw : ");
+         scanf("%d",&amt);
+         withdraw(acc,amt);
+         break;
+      case 3:
+         balance(acc);
+         break;
+      default:
+         printf("Invalid Choice.");
+   }
+
+   return 0;
+}
