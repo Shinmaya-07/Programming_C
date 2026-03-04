@@ -1,0 +1,28 @@
+#include<unistd.h>
+#define max 10
+union sample{
+  int x;
+  float y;
+  char s;
+  char arr[max];
+};
+
+int main(){
+   union sample samp;
+   printf("Enter x(int) = ");
+   scanf("%d",&samp.x);
+   printf("Enter y(float) = ");
+   scanf("%f",&samp.y);
+   printf("Enter s(char) = ");
+   scanf(" %c",&samp.s);
+   printf("Enter arr(string) = ");
+   scanf("%s",&samp.arr);
+
+   printf("%d\n",samp.x);
+   printf("%f\n",samp.y);
+   printf("%c\n",samp.s);
+   printf("%s\n",samp.arr);
+
+   printf("Size of Struct : %d\n",sizeof(samp));
+   return 0;
+}
